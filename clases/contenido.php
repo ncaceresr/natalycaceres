@@ -49,6 +49,13 @@ class Contenidos {
         $db->cerrar();
         return $fila;
     }
+
+    public function listar (){
+        $db = new conexionDB();
+        $sql = "select * from mydb.contenidos";
+        $resultado =$db->ejecutar($sql);
+        return $resultado;
+    }
 }
 
 
