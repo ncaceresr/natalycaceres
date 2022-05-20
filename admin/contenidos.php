@@ -27,18 +27,25 @@
                             <div class="col-md-4">
                             
                                     <div class="card" style="width:18rem">
-                                        <img src= "<?php echo $reg["imagen"]?>" class = "card-img-top"alt="img" style="width: 10%; ">
+                                        <img src= "<?php echo $reg["imagen"]?>" class = "card-img-top"alt="img" style="width: 100%; ">
                                             <div class="card-body">
                                                 
                                                     <?php echo $reg["titulo"]?><br>
                                                     <?php echo $reg["subtitulo"]?> <br>
                                                     <?php echo $reg["contenido"]?><br>
-                                                    
+                                                <div class="row">
+                                                    <div class="col-9 mt-5">
+                                                        <input type="button" onClick=" " value="Eliminar" style="float: right"></input> 
+                                                    </div>
+                                                    <div class="col-3 mt-5" >
+                                                        <input type="button" onClick=" " value="Editar" style="float: right" ></input>
+                                                    </div>
+                                                </div>
                                             </div>
                                     </div>
-                                
+                                    <br></br>
                             </div>                        
-                            <br></br>
+                            
 
 
             <?php    

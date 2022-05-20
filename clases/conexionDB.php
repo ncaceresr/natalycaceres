@@ -13,14 +13,19 @@ class conexionDB{
             }
         }
 
-        public function ejecutar($sql){
-            $resultado=$this->conexion->query($sql);
-            return $resultado;
-        }
+        //public function ejecutar($sql){
+           // $resultado=$this->conexion->query($sql);
+          //  return $resultado;
+        //}
 
-        public function pdo($sql, $parametros){
+        public function ejecutar_pdo($sql, $parametros){
             $resultado = $this->conexion->prepare($sql);
-            $resultado->execute($parametros);
+            if (sizeof($parametros)){
+                $tipos = str_repeat("s",sizeof($parametros));
+                $resultado->bind_param($tipos,...$parametros);
+            }
+            $resultado->execute();
+            $resultado=$resultado->get_result();
             return $resultado;
         }
 
