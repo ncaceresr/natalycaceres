@@ -16,7 +16,7 @@ if(($_POST)){
     $contenido->subtitulo= $_POST["subtitulo"];
     $contenido->contenido= $_POST["contenido"];
  
-    $contenido->agregar();
+    $contenido->modificar();
     
 
     header("Location:contenidos.php");

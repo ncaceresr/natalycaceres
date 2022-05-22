@@ -12,15 +12,10 @@ class Clasif {
 
     public function listar(){
         $db = new conexionDB();
-        $query="SELECT * FROM mydb.clasificaciones WHERE idclasificaciones=" . $this->idclasificaciones;
-        $resultado=$db->ejecutar($query);
-        $fila = $resultado->fetch_assoc();
-        $this->idclasificaciones=$fila["idclasificaciones"];
-        $this->nombre=$fila["nombre"];
-        $db->cerrar();
-        return $fila;
+        $query="SELECT * FROM mydb.clasificaciones WHERE idclasificaciones=? and nombre=?";
+        $resultado=$db->ejecutar_pdo($query, array($this->idclasificaciones, $this->nombre));
+        return $resultado;
 
     }
 }
-
 ?>

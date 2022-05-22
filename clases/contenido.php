@@ -3,7 +3,7 @@
 require_once "conexionDB.php";
 
 class Contenidos {
-    public $idcontenido;
+    public $idcontenidos;
     public $autor_idusuario;   
     public $idclasificaciones;
     public $imagen;
@@ -19,19 +19,19 @@ class Contenidos {
     public function agregar(){
 
         $db = new conexionDB();
-        $query ="INSERT INTO Contenidos values (NULL, ?,?,?,?,?,? )";
+        $query ="INSERT INTO mydb.contenidos VALUES (NULL, ?, ?, ?, ?, ?, ? )";
         $parametros= array($this->autor_idusuario,$this->idclasificaciones,$this->imagen,$this->titulo,$this->subtitulo,$this->contenido);
         $db->ejecutar_pdo($query,$parametros);
         $db->cerrar();
     }
 
-    public function modificar( ){
+    public function modificar(){
         $db=new conexionDB();
-        $query="update mydb.contenidos set autor_idusuario=?, idclasificaciones=?,imagen=?,titulo=?,subtitulo?,contenido=? where idcontenidos=?";
-        $parametros=array($this->autor_idusuario,$this->idclasificaciones,$this->imagen,$this->titulo,$this->subtitulo,$this->contenido);
+        $query="UPDATE mydb.contenidos SET autor_idusuario=?,idclasificaciones=?,imagen=?,titulo=?,subtitulo=?,contenido=? WHERE idcontenidos=?";
+        $parametros=array($this->autor_idusuario,$this->idclasificaciones,$this->imagen,$this->titulo,$this->subtitulo,$this->contenido, $this->idcontenidos);
         $db->ejecutar_pdo($query,$parametros);
         $db->cerrar();
-    }
+    } 
 
     public function eliminar(){
         $db=new conexionDB();
@@ -73,6 +73,12 @@ class Contenidos {
         $resultado =$db->ejecutar_pdo($sql, array());
         return $resultado;
     }
+
+public function setIdContenidos($id){
+    $this->idcontenidos=$id;
+    $this->obtener();
+}
+
 }
 
 
