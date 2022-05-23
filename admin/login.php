@@ -32,7 +32,9 @@
 
 <?php
 
-require_once 'componentes/header.php';
+require_once "../componentes/header.php";
+
+
 ?>
 
 
@@ -83,5 +85,5 @@ require_once 'componentes/header.php';
 
 
 <?php
-require_once "componentes/footer.php";
+require_once "../componentes/footer.php";
 ?>

@@ -27,8 +27,8 @@ class Contenidos {
 
     public function modificar(){
         $db=new conexionDB();
-        $query="UPDATE mydb.contenidos SET autor_idusuario=?,idclasificaciones=?,imagen=?,titulo=?,subtitulo=?,contenido=? WHERE idcontenidos=?";
-        $parametros=array($this->autor_idusuario,$this->idclasificaciones,$this->imagen,$this->titulo,$this->subtitulo,$this->contenido, $this->idcontenidos);
+        $query="UPDATE mydb.contenidos SET autor_idusuarios=?,idclasificaciones=?,imagen=?,titulo=?,subtitulo=?,contenido=? WHERE idcontenidos=?";
+        $parametros=array($this->autor_idusuarios,$this->idclasificaciones,$this->imagen,$this->titulo,$this->subtitulo,$this->contenido, $this->idcontenidos);
         $db->ejecutar_pdo($query,$parametros);
         $db->cerrar();
     } 

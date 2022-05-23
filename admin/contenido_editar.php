@@ -1,27 +1,30 @@
 <?php
-require_once 'configuracion.ini.php';
-require $path."componentes/header.php";
+
+require_once "../componentes/header.php";
 require_once '../clases/contenido.php';
 
+
 $contenido = new Contenidos();
-if (isset($_GET["id"])) {
-    $contenido->setIdContenidos($_GET["id"]);
-}
-if(($_POST)){
-    $contenido->setIdContenidos($_POST["idcontenidos"]);
-    $contenido->autor_idusuario=1;
-    $contenido->idclasificaciones=1 ;
-    $contenido->imagen=$_POST["imagen"];
-    $contenido->titulo= $_POST["titulo"];
-    $contenido->subtitulo= $_POST["subtitulo"];
-    $contenido->contenido= $_POST["contenido"];
- 
-    $contenido->modificar();
-    
+    if (isset($_GET["id"])) {
+        $contenido->setIdContenidos($_GET["id"]);
+        $contenido->autor_idusuarios=1;
+        
+    if($_POST){
+        $contenido->idclasificaciones=1;
+        $contenido->imagen=$_POST["imagen"];
+        $contenido->titulo= $_POST["titulo"];
+        $contenido->subtitulo= $_POST["subtitulo"];
+        $contenido->contenido= $_POST["contenido"];
 
-    header("Location:contenidos.php");
-}
-
+        $contenido->modificar();
+    }
+        
+    }
+/*$contenido->idcontenidos=28;
+$contenido->idclasificaciones=4;
+$contenido->autor_idusuarios=1;
+$contenido->titulo="prueba 123";
+$contenido->modificar();*/
 
 
 ?>
@@ -30,8 +33,8 @@ if(($_POST)){
 
 
 <div class="container">
-<form method="POST">
-                <input type="hidden" name="idcontenidos" value="<?php echo $contenido->idcontenidos ?>">
+<form method="POST" >
+                <input type="hidden" name="id" value="<?php echo $contenido->idcontenidos ?>">
     <div class="card  w-75 align-item: center">
         <div class="row margin-left: 20px">
             <h2>Contenido</h2>
@@ -85,7 +88,7 @@ if(($_POST)){
             </div><br>
             <div class="row">
                 <div class="col-9 mt-5">
-                    <button type="submit" onClick=" " value="Cancelar" style="float: right">Cancelar</button> 
+                    <a type="submit" class="btn btn-primary" href="../admin/contenidos.php"   >Cancelar</a> 
                 </div>
                 <div class="col-3 mt-5" >
                     <button  type="submit" class="btn btn-primary" style="float: right" name="btn_guardar" >Guardar</button>
@@ -101,6 +104,6 @@ if(($_POST)){
 
 
 <?php
-require $path."componentes/footer.php";
+require_once "../componentes/footer.php";
 
 ?>

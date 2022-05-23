@@ -1,9 +1,9 @@
 
     <?php
         
-        require_once "componentes/header.php";
+        require_once "../componentes/header.php";
 
-        require_once './clases/contenido.php';
+        require_once '../clases/contenido.php';
         
         session_start ();
         
@@ -61,5 +61,5 @@
 
 
 <?php
-require $path."componentes/footer.php";
+require_once "../componentes/footer.php";
 ?>
