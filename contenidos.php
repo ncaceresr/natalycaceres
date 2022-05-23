@@ -5,10 +5,11 @@ require_once $path."clases/contenido.php";
 ?>
 
 <div class="container">
+    <h2>CONTENIDOS</h2>
     <div class="row style= align-center">
         <?php
             $contenido = new Contenidos();
-            $registro = $contenido->listar2();
+            $registro = $contenido->listar();
             while($reg = $registro->fetch_assoc()){
         ?>
             <div class="card mb-3" style="max-width: 540px;">
@@ -22,6 +23,7 @@ require_once $path."clases/contenido.php";
                             <?php echo $reg["subtitulo"]?> <br>
                             </div>
                         </div>
+                        <a href="contenido_tarjeta.php?id=<?php echo $reg["idcontenidos"]?>" class="card-link">Ver más...</a>
                 </div>
             </div>
         <?php
@@ -32,7 +34,7 @@ require_once $path."clases/contenido.php";
 </div>
 
 
-    
+
 
 <?php
 require $path."componentes/footer.php";

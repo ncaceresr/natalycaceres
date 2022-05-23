@@ -17,7 +17,7 @@
     <div class="col-9">
         <nav class="nav justify-content-left">
             <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
-            <a class="nav-link" href="#">Contenidos</a>
+            <a class="nav-link" href="./contenidos.php">Contenidos</a>
             <a class="nav-link" href="./quienessomos.php">Quienes Somos</a>
         </nav>
     </div>

@@ -101,6 +101,6 @@ if(($_POST)){
 
 
 <?php
-require $path."componentes/footer.php";
+require_once '../componentes/footer.php';
 
 ?>

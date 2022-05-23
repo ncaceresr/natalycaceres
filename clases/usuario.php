@@ -1,5 +1,5 @@
 <?php
-class usuario {
+class Usuario {
     public $idusuario;
     public $email;
     public $nombre;
@@ -10,11 +10,13 @@ class usuario {
 
     }
 
-    public function __ agregar() {
-
+    public function buscar(){
+        $db = new conexionDB();
+        $query= "SELECT nombre=?, apellido=? FROM mydb.usuarios WHERE idusuarios=?";
+        $parametros= array($this->nombre,$this->apellido,$this->idusuarios);
+        $db->ejecutar_pdo($query,$parametros);
+        $db->cerrar();
     }
-
-    public function __ 
 }
 
 

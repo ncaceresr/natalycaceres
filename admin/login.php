@@ -31,8 +31,8 @@
 
 
 <?php
-require_once 'configuracion.ini.php';
-require $path."componentes/header.php";
+
+require_once 'componentes/header.php';
 ?>
 
 
@@ -83,5 +83,5 @@ require $path."componentes/header.php";
 
 
 <?php
-require $path."componentes/footer.php";
+require_once "componentes/footer.php";
 ?>

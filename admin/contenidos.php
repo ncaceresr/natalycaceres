@@ -1,9 +1,9 @@
 
     <?php
-        require_once 'configuracion.ini.php';
-        require $path."componentes/header.php";;
+        
+        require_once "componentes/header.php";
 
-        require_once '../clases/contenido.php';
+        require_once './clases/contenido.php';
         
         session_start ();
         

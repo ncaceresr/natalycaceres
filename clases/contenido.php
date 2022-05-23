@@ -73,6 +73,13 @@ class Contenidos {
         $resultado =$db->ejecutar_pdo($sql, array());
         return $resultado;
     }
+    public function listar2 (){
+        $db = new conexionDB();
+        $sql = "SELECT * FROM mydb.contenidos 
+        LIMIT 3";
+        $resultado =$db->ejecutar_pdo($sql, array());
+        return $resultado;
+    }
 
 public function setIdContenidos($id){
     $this->idcontenidos=$id;
