@@ -1,17 +1,19 @@
 
     <?php
         
-        require_once "../componentes/header.php";
+        require_once "../componentes/header.php"; ?>
+        
 
-        require_once '../clases/contenido.php';
+        <?php require_once '../clases/contenido.php';
         
         session_start ();
         
 
     ?>
-    <a href="logout.php">Cerrar Seción</a>
+    
 
 <div class="container">
+    <a style="float:right; borderr-radius:12px; background-color:gray; border:gray ;font-size:16px; font-weight:bold" type="submit" href="logout.php" class="btn btn-primary">Cerrar Seción</a>
     <button type="submit" class="btn btn-primary" onClick="window.location.href='../admin/contenido.php'" value= "<?php $contenido = new Contenidos() ?>" nombre="btn_agregar">Agregar</button>
     <br>
 <br>
@@ -30,10 +32,10 @@
                                     <div class="card" style="width:18rem">
                                         <img src= "<?php echo $reg["imagen"]?>" class = "card-img-top"alt="img" style="width: 100%; ">
                                             <div class="card-body">
-                                                
-                                                    <?php echo $reg["titulo"]?><br>
-                                                    <?php echo $reg["subtitulo"]?> <br>
-                                                    <?php echo $reg["contenido"]?><br>
+                                                    
+                                                    <h2> <?php echo $reg["titulo"]?> </h2> <br>
+                                                    <h3> <?php echo $reg["subtitulo"]?> </h3> <br>
+                                                    <p text-align="justify"><?php echo $reg["contenido"]?> </p> <br>
                                                 <div class="row">
                                                     <div class="col-6 mt-5">
                                                         <button type="submit" class="btn btn-danger" onClick="" value="Eliminar" style="float: right" name="btn_eliminar">Eliminar</button> 

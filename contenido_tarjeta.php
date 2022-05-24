@@ -21,7 +21,13 @@ require_once $path."clases/usuario.php";
     <h1><?php echo $contenido->titulo;?></h1>
     <br></br>
     <h3><?php echo $contenido->subtitulo;?></h3>
+    <p style="text-align:right">
+    <?php echo $contenido->nombre;?> 
+    <?php echo $contenido->apellido;?><br>
+<?php echo $contenido->email;?><br>
+</p>
     <br></br>
+
     </div>
     <div class="row">
         <p style="text-align: justify;"><?php echo $contenido->contenido;?> </p>

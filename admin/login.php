@@ -32,7 +32,7 @@
 
 <?php
 
-require_once "../componentes/header.php";
+require "../componentes/header.php";
 
 
 ?>

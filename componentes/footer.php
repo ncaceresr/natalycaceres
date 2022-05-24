@@ -7,17 +7,17 @@
         <div class="col-9">
             <div class="row">
                 <nav class="nav">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
                 </nav>
                 </div>
             <div class= "row">
                 <nav class="nav">
-                    <a class="nav-link" href="#">Contenidos</a>
+                    <a class="nav-link" href="./contenidos.php">Contenidos</a>
                 </nav>
             </div>
             <div class="row">
                 <nav class="nav">  
-                <a class="nav-link" href="#">Quienes Somos</a>
+                <a class="nav-link" href="./quienessomos.php">Quienes Somos</a>
                 </nav>
             </div>
             

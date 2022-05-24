@@ -2,6 +2,7 @@
 
 require_once "../componentes/header.php";
 require_once '../clases/contenido.php';
+require_once '../clases/clasificaciones.php';
 
 
 $contenido = new Contenidos();
@@ -10,7 +11,7 @@ $contenido = new Contenidos();
         $contenido->autor_idusuarios=1;
         
     if($_POST){
-        $contenido->idclasificaciones=1;
+        $contenido->idclasificaciones=$_POST["idclasificaciones"];
         $contenido->imagen=$_POST["imagen"];
         $contenido->titulo= $_POST["titulo"];
         $contenido->subtitulo= $_POST["subtitulo"];
@@ -25,6 +26,10 @@ $contenido->idclasificaciones=4;
 $contenido->autor_idusuarios=1;
 $contenido->titulo="prueba 123";
 $contenido->modificar();*/
+
+$clasif=new Clasif();
+
+$clasif->listar();
 
 
 ?>
@@ -46,7 +51,20 @@ $contenido->modificar();*/
                     
                 </div>
                 <div class="col-9">
-                <input type="tex" class="form-control" name="clasificion" placeholder="clasi" value ="<?php echo $contenido->idclasificaciones?>">
+               <!-- <input type="text" class="form-control" name="idclasificaciones" placeholder="clasi" value ="<?php echo $contenido->idclasificaciones?>">-->
+                <select class="form-select" name="idclasificaciones">
+                    <option selected> <?php echo $contenido->idclasificaciones ?> </option>
+                    <option value= "<?php echo $clasif->idclasificaciones=1;?>" name="idclasificaciones"> 1.
+                        <?php echo $clasif->nombre='Noticias';?>  </option>
+                        <option value= "<?php echo $clasif->idclasificaciones=2;?>" name="idclasificaciones"> 2.
+                        <?php echo $clasif->nombre='Asociación';?>  </option>
+                        <option value= "<?php echo $clasif->idclasificaciones=3;?>" name="idclasificaciones"> 3.
+                        <?php echo $clasif->nombre='Información';?> </option>  </option>
+                        <option value= "<?php echo $clasif->idclasificaciones=4;?>" name="idclasificaciones"> 4.
+                        <?php echo $clasif->nombre='Otros';?>  </option>
+
+                </select>
+
                 </div>
                 
             </div> <br>

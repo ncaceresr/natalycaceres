@@ -43,7 +43,9 @@ class Contenidos {
 
     public function obtener(){
         $db = new conexionDB();
-        $query="SELECT * FROM mydb.contenidos WHERE idcontenidos= ?";
+        $query="SELECT * FROM mydb.contenidos INNER JOIN mydb.usuarios 
+        on mydb.contenidos.autor_idusuarios=mydb.usuarios.idusuarios
+        WHERE mydb.contenidos.idcontenidos= ?";
         $resultado= $db->ejecutar_pdo($query,array($this->idcontenidos));
         if($resultado->num_rows>0){
             $fila = $resultado->fetch_assoc();
@@ -54,6 +56,9 @@ class Contenidos {
             $this->titulo=$fila["titulo"];
             $this->subtitulo=$fila["subtitulo"];
             $this->contenido=$fila["contenido"];
+            $this->nombre=$fila["nombre"];
+            $this->apellido=$fila["apellido"];
+            $this->email=$fila["email"];
         } else {
             $this->idcontenidos=null;
             $this->autor_idusuario=null;
