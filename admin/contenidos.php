@@ -1,10 +1,9 @@
 
     <?php
         
-        require_once "../componentes/header.php"; ?>
-        
-
-        <?php require_once '../clases/contenido.php';
+        require_once "../componentes/header.php"; 
+        require_once '../clases/contenido.php';
+        require_once '../admin/eliminar.php';
         
         session_start ();
         
@@ -38,8 +37,10 @@
                                                     <p text-align="justify"><?php echo $reg["contenido"]?> </p> <br>
                                                 <div class="row">
                                                     <div class="col-6 mt-5">
-                                                        <button type="submit" class="btn btn-danger" onClick="" value="Eliminar" style="float: right" name="btn_eliminar">Eliminar</button> 
-                                                    </div>
+                                                       
+                                                        <button type="submit" class="btn btn-danger" onClick= "eliminar(<?php echo $reg['idcontenidos']?>)" value="" style="float: right" name="eliminar">Eliminar </button> 
+                                                       
+                                                    </div> 
                                                     <div class="col-6 mt-5" >
                                                         <a href="../admin/contenido_editar.php?id=<?php echo $reg["idcontenidos"]?>" class="btn btn-primary" type="submit"  >Editar</a>
                                                     </div>
@@ -61,7 +62,9 @@
         <br></br>
 </div>
 
-
+<script src="eliminar.js"></script>
 <?php
+
+
 require_once "../componentes/footer.php";
 ?>
