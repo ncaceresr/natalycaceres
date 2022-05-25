@@ -3,7 +3,7 @@
         
         require_once "../componentes/header.php"; 
         require_once '../clases/contenido.php';
-        require_once '../admin/eliminar.php';
+        //require_once '../admin/eliminar.php';
         
         session_start ();
         
@@ -37,9 +37,11 @@
                                                     <p text-align="justify"><?php echo $reg["contenido"]?> </p> <br>
                                                 <div class="row">
                                                     <div class="col-6 mt-5">
-                                                       
-                                                        <button type="submit" class="btn btn-danger" onClick= "eliminar(<?php echo $reg['idcontenidos']?>)" value="" style="float: right" name="eliminar">Eliminar </button> 
-                                                       
+                                                        <form method="POST" action="../admin/eliminar.php">
+                                                            <input type="hidden" name="id" value="<?php $reg['idcontenidos'];?>"/>
+                                                        <!--<button type="button" class="btn btn-outline-danger btn-space" style="float:right" onClick= "eliminar(<?php echo $reg["idcontenidos"] ;?>)">Eliminar </button> -->
+                                                        <a  onClick="eliminar(<?php echo $reg["idcontenidos"] ;?>)" href="../admin/eliminar.php?id=<?php echo $reg["idcontenidos"]?>" class="btn btn-outline-danger btn-space" type="submit">Eliminar 2</a>
+                                                    </form>
                                                     </div> 
                                                     <div class="col-6 mt-5" >
                                                         <a href="../admin/contenido_editar.php?id=<?php echo $reg["idcontenidos"]?>" class="btn btn-primary" type="submit"  >Editar</a>
