@@ -1,4 +1,9 @@
 <?php
+require_once "../configuracion.ini.php";
+
+
+require_once "../clases/usuario.php";
+
     session_start();
     if (isset($_SESSION['usuario'])) {
         if ($_GET["logout"] == 1) {
@@ -18,13 +23,18 @@
         $usuario = $_POST['usuario'];
         $contrasena = $_POST['contrasena'];
 
-        if ($usuario == 'admin@admin.cl' && $contrasena =='mayo') {
+        $usuario = new Usuario();
+        $usuarioValido=$usuario->autenticar($username,$password);
+
+
+
+       /* if ($usuario == 'admin@admin.cl' && $contrasena =='mayo') {
             $usuarioValido = "Usuario válido";
             $_SESSION["usuario"] = $usuario;
             header("Location: contenidos.php");
         } else {
             $usuarioNoValido = "Usuario no válido";
-        }
+        }*/
     }
 
 ?>
@@ -32,7 +42,9 @@
 
 <?php
 
+
 require "../componentes/header.php";
+require "../componentes/carrusel.php";
 
 
 ?>

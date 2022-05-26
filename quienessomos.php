@@ -1,6 +1,8 @@
 <?php
 require_once 'configuracion.ini.php';
+
 require $path."componentes/header.php";
+require "./componentes/carrusel.php";
 ?>
 <div class="container">
   <div class="row">

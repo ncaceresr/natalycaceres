@@ -17,6 +17,9 @@ require_once $path."clases/usuario.php";
         
   ?>
 <div class="container">
+<div class="row">
+    <img src= "<?php echo $contenido->imagen;?>" class = "rounded mx-auto d-block" alt="img" style=" width: 1920px; height: 500px ; margin-left:auto; margin-right:auto;">
+        </div>
     <div class="row">
     <h1><?php echo $contenido->titulo;?></h1>
     <br></br>
@@ -24,7 +27,7 @@ require_once $path."clases/usuario.php";
     <p style="text-align:right">
     <?php echo $contenido->nombre;?> 
     <?php echo $contenido->apellido;?><br>
-<?php echo $contenido->email;?><br>
+    <?php echo $contenido->email;?><br>
 </p>
     <br></br>
 
@@ -33,10 +36,7 @@ require_once $path."clases/usuario.php";
         <p style="text-align: justify;"><?php echo $contenido->contenido;?> </p>
         <br></br>
     </div>
-    <div class="row">
-    <img src= "<?php echo $contenido->imagen;?>" class = "rounded mx-auto d-block" alt="img" style="width: 25%; display: block; margin-left:auto; margin-right:auto;">
-    
-    </div>
+
     <br></br>
 
 

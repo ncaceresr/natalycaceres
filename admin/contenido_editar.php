@@ -1,6 +1,7 @@
 <?php
-
+require_once "../configuracion.ini.php";
 require_once "../componentes/header.php";
+require "../componentes/carrusel.php";
 require_once '../clases/contenido.php';
 require_once '../clases/clasificaciones.php';
 

@@ -5,6 +5,7 @@ class Usuario {
     public $nombre;
     public $apellido;
     public $contrasena;
+    public $activo;
 
     public function __construct() {
 
@@ -17,6 +18,25 @@ class Usuario {
         $db->ejecutar_pdo($query,$parametros);
         $db->cerrar();
     }
+
+public function autenticar($email, $contrasena){
+$db = new conexionDB();
+$sql="SELECT * FROM mydb.usuarios WHERE email=? AND contrasena=?";
+$parametros= array($this->email,$this->contrasena);
+$resultado = $db->ejecutar_pdo($sql,$parametros);
+if($resultado->num_rows>0){
+    $fila=$resultado->fetch_assoc();
+    $this->idusuarios=$fila["idusuarios"];
+    $this->email=$fila["email"];
+    $this->nombre=$fila["nombre"];
+    $this->apellido=$fila["apellido"];
+    $this->contrasena=$fila["contrasena"];
+    $this->activo=$fila["activo"];
+    return true;
+}else
+return false;
+}
+
 }
 
 

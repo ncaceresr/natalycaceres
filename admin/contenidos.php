@@ -1,7 +1,8 @@
 
     <?php
-        
+        require_once "../configuracion.ini.php";
         require_once "../componentes/header.php"; 
+        require "../componentes/carrusel.php";
         require_once '../clases/contenido.php';
         //require_once '../admin/eliminar.php';
         
@@ -40,7 +41,7 @@
                                                         <form method="POST" action="../admin/eliminar.php">
                                                             <input type="hidden" name="id" value="<?php $reg['idcontenidos'];?>"/>
                                                         <!--<button type="button" class="btn btn-outline-danger btn-space" style="float:right" onClick= "eliminar(<?php echo $reg["idcontenidos"] ;?>)">Eliminar </button> -->
-                                                        <a  onClick="eliminar(<?php echo $reg["idcontenidos"] ;?>)" href="../admin/eliminar.php?id=<?php echo $reg["idcontenidos"]?>" class="btn btn-outline-danger btn-space" type="submit">Eliminar 2</a>
+                                                        <a  onClick="eliminar(<?php echo $reg["idcontenidos"] ;?>)" href="../admin/eliminar.php?id=<?php echo $reg["idcontenidos"]?>" class="btn btn-outline-danger btn-space" type="submit">Eliminar</a>
                                                     </form>
                                                     </div> 
                                                     <div class="col-6 mt-5" >
