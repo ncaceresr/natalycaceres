@@ -1,8 +1,8 @@
-
+<hr></hr>
 <div class="footer">
     <div class= "row style: margin-top: 5px">
         <div class= "col-3 mt-10">
-            <img src="https://picsum.photos/300/90" class="d-block w-100" alt="img0">
+            <img src="../logo/logo.png" alt=""   class="d-block w-100" alt="img0" style="width:25%;">
         </div>
         <div class="col-9">
             <div class="row">
