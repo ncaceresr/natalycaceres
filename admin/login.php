@@ -4,6 +4,7 @@ require_once "../configuracion.ini.php";
 
 require_once "../clases/usuario.php";
 
+
     session_start();
     if (isset($_SESSION['usuario'])) {
         if ($_GET["logout"] == 1) {
@@ -14,19 +15,25 @@ require_once "../clases/usuario.php";
         }
     }
 
-    $usuario = null;
-    $contrasena = null;
+    $username = null;
+    $password = null;
     $usuarioValido = null;
     $usuarioNoValido = null;
 
     if (!empty($_POST)) {
-        $usuario = $_POST['usuario'];
-        $contrasena = $_POST['contrasena'];
+        $username = $_POST['email'];
+        $password = $_POST['contrasena'];
 
         $usuario = new Usuario();
         $usuarioValido=$usuario->autenticar($username,$password);
-
-
+        if ($usuarioValido){
+            $_SESSION['usuario'] = $username;
+            header("Location: contenidos.php");
+            exit();
+        }else{
+            $usuarioNoValido ="Usuario o contraseña incorrectos";
+            
+        }
 
        /* if ($usuario == 'admin@admin.cl' && $contrasena =='mayo') {
             $usuarioValido = "Usuario válido";
@@ -36,12 +43,6 @@ require_once "../clases/usuario.php";
             $usuarioNoValido = "Usuario no válido";
         }*/
     }
-
-?>
-
-
-<?php
-
 
 require "../componentes/header.php";
 require "../componentes/carrusel.php";
@@ -59,32 +60,33 @@ require "../componentes/carrusel.php";
         <div class="card-body">
             <h5 class="card-title">Loggin</h5>
             <form accion="" method="POST">
-                        <input type="email" id="usuario" name="usuario" placeholder="email" required>
+                        <input type="email" id="email" name="email" placeholder="email" required>
                     <br></br>
                         <input type="password" id="password" name="contrasena" placeholder="password" required>
                     <br></br>
                     <div class="mb-3">
                                             <?php
-                                                if (!is_null($usuarioValido)) {
+                                                if ($usuarioValido) {
                                             ?>
                                                 <div class="alert alert-success" role="alert">
-                                                    Usuario válido, será redicreccionado/a
+                                                <alert message >   Usuario válido, será redicreccionado/a</alert>
                                                 </div>
                                             <?php
                                                 }
                                             ?>
 
                                             <?php
-                                                if (!is_null($usuarioNoValido))   {
+                                                if (!$usuarioNoValido)   {
                                             ?>
                                                 <div class="alert alert-danger" role="alert">
-                                                    Usuario/a no válido/a, deberá intentar nuevamente.
+                                                 <alert>   Usuario/a no válido/a, deberá intentar nuevamente.</alert>
+                                                 
                                                 </div>
                                             <?php
                                                 }
                                             ?>
                                         </div>
-                            <button type="submit"  class="btn btn-primary" style="float: right">INGRESAR</button>
+                            <button type="submit"  class="btn btn-primary" style="float: right" name="login">INGRESAR</button>
                     </div>
             </form>
         </div>

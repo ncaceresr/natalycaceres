@@ -1,4 +1,6 @@
 <?php
+require_once "conexionDB.php";
+
 class Usuario {
     public $idusuario;
     public $email;
@@ -19,27 +21,25 @@ class Usuario {
         $db->cerrar();
     }
 
-public function autenticar($email, $contrasena){
-$db = new conexionDB();
-$sql="SELECT * FROM mydb.usuarios WHERE email=? AND contrasena=?";
-$parametros= array($this->email,$this->contrasena);
-$resultado = $db->ejecutar_pdo($sql,$parametros);
-if($resultado->num_rows>0){
-    $fila=$resultado->fetch_assoc();
-    $this->idusuarios=$fila["idusuarios"];
-    $this->email=$fila["email"];
-    $this->nombre=$fila["nombre"];
-    $this->apellido=$fila["apellido"];
-    $this->contrasena=$fila["contrasena"];
-    $this->activo=$fila["activo"];
-    return true;
-}else
-return false;
+    public function autenticar($email, $contrasena){
+    $db = new conexionDB();
+    $sql="SELECT * FROM mydb.usuarios WHERE email=? AND contrasena=? AND activo=1";
+    $parametros= array($email,$contrasena);
+    $resultado = $db->ejecutar_pdo($sql,$parametros);
+    if($resultado->num_rows>0){
+        $fila=$resultado->fetch_assoc();
+        $this->idusuarios=$fila["idusuarios"];
+        $this->email=$fila["email"];
+        $this->nombre=$fila["nombre"];
+        $this->apellido=$fila["apellido"];
+        $this->contrasena=$fila["contrasena"];
+        $this->activo=$fila["activo"];
+        return true;
+    }
+    else{
+        return false;
+    }
+    }
 }
-
-}
-
-
-
 
 ?>
